@@ -1,13 +1,25 @@
 package models;
  
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.Date;
  
+
+
+
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+
+import util.DateUtil;
+import util.Formatador;
  
 class PagamentoKey implements Serializable{
         public static final long serialVersionUID = -4810725213896099801L;
@@ -105,8 +117,14 @@ public class Pagamento {
                 this.orgao = orgao;
         }
  
+        @JsonIgnore
         public String getCnpj() {
                 return cnpj;
+        }
+        
+        @JsonProperty
+        public String getCnpjFormatado() {
+            return Formatador.getCnpjFormatted(cnpj);
         }
  
         public void setCnpj(String cnpj) {
@@ -120,11 +138,17 @@ public class Pagamento {
         public void setNomeCredor(String nomeCredor) {
                 this.nomeCredor = nomeCredor;
         }
- 
+        
+        @JsonIgnore
         public Date getData() {
                 return data;
         }
  
+        @JsonProperty
+        public String getDataEmpenhoFormatado() {
+            return DateUtil.getFormattedDate(data);
+        }
+        
         public void setData(Date data) {
                 this.data = data;
         }
@@ -136,11 +160,15 @@ public class Pagamento {
         public void setAno(int ano) {
                 this.ano = ano;
         }
- 
+        @JsonIgnore
         public float getValor() {
                 return valor;
         }
- 
+        @JsonProperty
+        public String getValorFormatado() {
+            return (new DecimalFormat("#,###.00").format(valor) +"");
+        }
+        
         public void setValor(float valor) {
                 this.valor = valor;
         }

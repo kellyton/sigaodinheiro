@@ -3,10 +3,59 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
-#GET     /teste                           controllers.ExtractorController.mostraXML()
-#GET     /processaMunicipios              controllers.ExtractorController.processaMunicipios()
-GET     /processaPernambuco            	controllers.ExtractorController.processaPernambuco()
+GET     /                           					controllers.Application.index()
+
+
+##### PAGAMENTOS #####
+
+# Por Area
+GET		/pagamentos/porarea								controllers.PagamentoController.getListaPagamentosPorArea()
+GET		/pagamentos/porarea/estado						controllers.PagamentoController.getListaPagamentosPorAreaEEstado()
+GET		/pagamentos/porarea/estado/cidade				controllers.PagamentoController.getListaPagamentosPorAreaEEstadoECidade()
+
+# Por Cnpj
+GET		/pagamentos/porcnpj								controllers.PagamentoController.getListaPagamentosPorCnpj()
+GET		/pagamentos/porcnpj/estado						controllers.PagamentoController.getListaPagamentosPorCnpjEEstado()
+GET		/pagamentos/porcnpj/estado/cidade				controllers.PagamentoController.getListaPagamentosPorCnpjEEstadoECidade()
+
+# Por Local
+GET		/pagamentos/porlocal/estado						controllers.PagamentoController.getListaPagamentosPorEstado()
+GET		/pagamentos/porlocal/estado/cidade				controllers.PagamentoController.getListaPagamentosPorEstadoECidade()
+GET		/pagamentos/porlocal/cidade						controllers.PagamentoController.getListaPagamentosPorCidade()
+
+# Por Orgao
+GET		/pagamentos/pororgao							controllers.PagamentoController.getListaPagamentosPorOrgao()
+GET		/pagamentos/pororgao/estado						controllers.PagamentoController.getListaPagamentosPorOrgaoEEstado()
+GET		/pagamentos/pororgao/estado/cidade				controllers.PagamentoController.getListaPagamentosPorOrgaoEEstadoECidade()
+
+# Por Credor
+GET		/pagamentos/porcredor							controllers.PagamentoController.getListaPagamentosPorNomeCredor()
+GET		/pagamentos/porcredor/estado					controllers.PagamentoController.getListaPagamentosPorNomeCredorEEstado()
+GET		/pagamentos/porcredor/estado/cidade				controllers.PagamentoController.getListaPagamentosPorNomeCredorEEstadoECidade()
+
+# Por Valor
+GET		/pagamentos/porvalor							controllers.PagamentoController.getPagamentosPorRangeValor()
+GET		/pagamentos/porvalor/estado						controllers.PagamentoController.getPagamentosPorRangeValorEEstado()
+GET		/pagamentos/porvalor/estado/cidade				controllers.PagamentoController.getPagamentosPorRangeValorEEstadoECidade()
+
+# AGREGADOS
+# Por Area
+GET		/pagamentos/agregados/porarea					controllers.PagamentoController.getAgregadoPagamentosPorArea()
+GET		/pagamentos/agregados/porarea/estado			controllers.PagamentoController.getAgregadoPagamentosPorAreaEEstado()
+GET		/pagamentos/agregados/porarea/estado/cidade		controllers.PagamentoController.getAgregadoPagamentosPorAreaEEstadoECidade()
+
+# Por Orgao
+GET		/pagamentos/agregados/pororgao/estado			controllers.PagamentoController.getAgregadoPagamentosPorOrgaoEEstado()
+GET		/pagamentos/agregados/pororgao/estado/cidade	controllers.PagamentoController.getAgregadoPagamentosPorOrgaoEEstadoECidade()
+
+# Por Estado e Cidade
+GET		/pagamentos/agregados/porestado					controllers.PagamentoController.getAgregadoPagamentosPorEstado()
+GET		/pagamentos/agregados/porcidade					controllers.PagamentoController.getAgregadoPagamentosPorEstadoECidade()
+
+GET		/pagamentos/agregados/porempresa/estado			controllers.PagamentoController.getAgregadoPagamentosPorEmpresaEEstado()
+
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
