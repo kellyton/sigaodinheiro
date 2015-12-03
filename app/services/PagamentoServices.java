@@ -10,6 +10,16 @@ import play.db.jpa.JPA;
 
 public class PagamentoServices {
 	
+	public static List<String> getCidadesDoEstado(String estado, int quantidadeResultados){
+		String query = "SELECT DISTINCT cidade "
+				+ "FROM Pagamento "
+				+ "WHERE estado = :estado "
+				+ "ORDER BY cidade";
+		return JPA.em().createQuery(query)
+				.setMaxResults(quantidadeResultados)
+				.setParameter("estado", estado)
+				.getResultList();
+	}
 	
 	/* AREA */
 	public static List<Pagamento> getListaPagamentosPorArea(String area, int quantidadeResultados){

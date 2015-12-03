@@ -3,56 +3,58 @@
 # ~~~~
 
 # Home page
-GET     /                           					controllers.Application.index()
+GET     /                           				controllers.Application.index()
 
+# Cidades do estado
+GET		/cidades/estado								controllers.PagamentoController.getCidadesDoEstado()
 
 ##### PAGAMENTOS #####
 
 # Por Area
-GET		/pagamentos/porarea								controllers.PagamentoController.getListaPagamentosPorArea()
-GET		/pagamentos/porarea/estado						controllers.PagamentoController.getListaPagamentosPorAreaEEstado()
-GET		/pagamentos/porarea/estado/cidade				controllers.PagamentoController.getListaPagamentosPorAreaEEstadoECidade()
+GET		/pagamentos/area							controllers.PagamentoController.getListaPagamentosPorArea()
+GET		/pagamentos/area/estado						controllers.PagamentoController.getListaPagamentosPorAreaEEstado()
+GET		/pagamentos/area/estado/cidade				controllers.PagamentoController.getListaPagamentosPorAreaEEstadoECidade()
 
 # Por Cnpj
-GET		/pagamentos/porcnpj								controllers.PagamentoController.getListaPagamentosPorCnpj()
-GET		/pagamentos/porcnpj/estado						controllers.PagamentoController.getListaPagamentosPorCnpjEEstado()
-GET		/pagamentos/porcnpj/estado/cidade				controllers.PagamentoController.getListaPagamentosPorCnpjEEstadoECidade()
+GET		/pagamentos/cnpj							controllers.PagamentoController.getListaPagamentosPorCnpj()
+GET		/pagamentos/cnpj/estado						controllers.PagamentoController.getListaPagamentosPorCnpjEEstado()
+GET		/pagamentos/cnpj/estado/cidade				controllers.PagamentoController.getListaPagamentosPorCnpjEEstadoECidade()
 
 # Por Local
-GET		/pagamentos/porlocal/estado						controllers.PagamentoController.getListaPagamentosPorEstado()
-GET		/pagamentos/porlocal/estado/cidade				controllers.PagamentoController.getListaPagamentosPorEstadoECidade()
-GET		/pagamentos/porlocal/cidade						controllers.PagamentoController.getListaPagamentosPorCidade()
+GET		/pagamentos/local/estado					controllers.PagamentoController.getListaPagamentosPorEstado()
+GET		/pagamentos/local/estado/cidade				controllers.PagamentoController.getListaPagamentosPorEstadoECidade()
+GET		/pagamentos/local/cidade					controllers.PagamentoController.getListaPagamentosPorCidade()
 
 # Por Orgao
-GET		/pagamentos/pororgao							controllers.PagamentoController.getListaPagamentosPorOrgao()
-GET		/pagamentos/pororgao/estado						controllers.PagamentoController.getListaPagamentosPorOrgaoEEstado()
-GET		/pagamentos/pororgao/estado/cidade				controllers.PagamentoController.getListaPagamentosPorOrgaoEEstadoECidade()
+GET		/pagamentos/orgao							controllers.PagamentoController.getListaPagamentosPorOrgao()
+GET		/pagamentos/orgao/estado					controllers.PagamentoController.getListaPagamentosPorOrgaoEEstado()
+GET		/pagamentos/orgao/estado/cidade				controllers.PagamentoController.getListaPagamentosPorOrgaoEEstadoECidade()
 
 # Por Credor
-GET		/pagamentos/porcredor							controllers.PagamentoController.getListaPagamentosPorNomeCredor()
-GET		/pagamentos/porcredor/estado					controllers.PagamentoController.getListaPagamentosPorNomeCredorEEstado()
-GET		/pagamentos/porcredor/estado/cidade				controllers.PagamentoController.getListaPagamentosPorNomeCredorEEstadoECidade()
+GET		/pagamentos/credor							controllers.PagamentoController.getListaPagamentosPorNomeCredor()
+GET		/pagamentos/credor/estado					controllers.PagamentoController.getListaPagamentosPorNomeCredorEEstado()
+GET		/pagamentos/credor/estado/cidade			controllers.PagamentoController.getListaPagamentosPorNomeCredorEEstadoECidade()
 
 # Por Valor
-GET		/pagamentos/porvalor							controllers.PagamentoController.getPagamentosPorRangeValor()
-GET		/pagamentos/porvalor/estado						controllers.PagamentoController.getPagamentosPorRangeValorEEstado()
-GET		/pagamentos/porvalor/estado/cidade				controllers.PagamentoController.getPagamentosPorRangeValorEEstadoECidade()
+GET		/pagamentos/valor							controllers.PagamentoController.getPagamentosPorRangeValor()
+GET		/pagamentos/valor/estado					controllers.PagamentoController.getPagamentosPorRangeValorEEstado()
+GET		/pagamentos/valor/estado/cidade				controllers.PagamentoController.getPagamentosPorRangeValorEEstadoECidade()
 
 # AGREGADOS
 # Por Area
-GET		/pagamentos/agregados/porarea					controllers.PagamentoController.getAgregadoPagamentosPorArea()
-GET		/pagamentos/agregados/porarea/estado			controllers.PagamentoController.getAgregadoPagamentosPorAreaEEstado()
-GET		/pagamentos/agregados/porarea/estado/cidade		controllers.PagamentoController.getAgregadoPagamentosPorAreaEEstadoECidade()
+GET		/pagamentos/agregados/area					controllers.PagamentoController.getAgregadoPagamentosPorArea()
+GET		/pagamentos/agregados/area/estado			controllers.PagamentoController.getAgregadoPagamentosPorAreaEEstado()
+GET		/pagamentos/agregados/area/estado/cidade	controllers.PagamentoController.getAgregadoPagamentosPorAreaEEstadoECidade()
 
 # Por Orgao
-GET		/pagamentos/agregados/pororgao/estado			controllers.PagamentoController.getAgregadoPagamentosPorOrgaoEEstado()
-GET		/pagamentos/agregados/pororgao/estado/cidade	controllers.PagamentoController.getAgregadoPagamentosPorOrgaoEEstadoECidade()
+GET		/pagamentos/agregados/orgao/estado			controllers.PagamentoController.getAgregadoPagamentosPorOrgaoEEstado()
+GET		/pagamentos/agregados/orgao/estado/cidade	controllers.PagamentoController.getAgregadoPagamentosPorOrgaoEEstadoECidade()
 
 # Por Estado e Cidade
-GET		/pagamentos/agregados/porestado					controllers.PagamentoController.getAgregadoPagamentosPorEstado()
-GET		/pagamentos/agregados/porcidade					controllers.PagamentoController.getAgregadoPagamentosPorEstadoECidade()
+GET		/pagamentos/agregados/estado				controllers.PagamentoController.getAgregadoPagamentosPorEstado()
+GET		/pagamentos/agregados/cidade				controllers.PagamentoController.getAgregadoPagamentosPorEstadoECidade()
 
-GET		/pagamentos/agregados/porempresa/estado			controllers.PagamentoController.getAgregadoPagamentosPorEmpresaEEstado()
+GET		/pagamentos/agregados/empresa/estado		controllers.PagamentoController.getAgregadoPagamentosPorEmpresaEEstado()
 
 
 

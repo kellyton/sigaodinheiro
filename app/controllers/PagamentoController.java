@@ -12,6 +12,21 @@ import util.Constantes;
 
 public class PagamentoController extends Controller{
 	
+	@Transactional
+	public static Result getCidadesDoEstado(){
+		response().setHeader("Access-Control-Allow-Origin","*");
+		response().setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+		
+		DynamicForm dynamicForm = form().bindFromRequest();
+		try{
+			String estado = (dynamicForm.get("estado") == null)? "" : dynamicForm.get("estado");
+			return ok(AdminJson.getObject(PagamentoServices.getCidadesDoEstado(estado, Constantes.MIL), "listaCidades"));
+		}catch(Exception e){
+			System.out.println("ERRO - PagamentoController/getCidadesDoEstado(): "+ e.getMessage());
+		}
+		return badRequest(AdminJson.getMensagem(AdminJson.msgConsulteAPI));
+	}
+	
 	/* AREA */
 	@Transactional
 	public static Result getListaPagamentosPorArea(){
